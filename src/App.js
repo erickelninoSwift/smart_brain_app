@@ -38,7 +38,19 @@ function App() {
   };
   return (
     <>
-      <ParticlesBg color="#ff1111" num={200} type="lines" bg={true} />
+      <ParticlesBg
+        color="#ff1111"
+        num={200}
+        type="lines"
+        bg={true}
+        style={{
+          position: "fixed",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+        }}
+      />
       <div>
         <Naviagtion />
         <div
