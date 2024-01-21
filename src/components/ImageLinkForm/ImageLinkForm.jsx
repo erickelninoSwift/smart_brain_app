@@ -13,7 +13,7 @@ function ImageLinkForm() {
         margin: "0px auto",
       }}
     >
-      <p className="f3">
+      <p className="f3" style={{ color: "white" }}>
         {"This Magic Brain Will Detect Faces In Your Pictures give it a try"}
       </p>
       <div className="center" style={{ display: "flex", width: "760px" }}>

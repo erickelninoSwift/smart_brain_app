@@ -10,7 +10,7 @@ function Naviagtion() {
       }}
     >
       <Logo />
-      <p className="f4 link dim black underline pointer">Sign In </p>
+      <p className="f4 link dim black underline pointer">Sign Out</p>
     </nav>
   );
 }
