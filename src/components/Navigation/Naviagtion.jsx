@@ -1,15 +1,16 @@
 import React from "react";
-
+import Logo from "../Logo/Logo";
 function Naviagtion() {
   return (
     <nav
       style={{
         display: "flex",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         padding: "1rem",
       }}
     >
-      <p>Sign In </p>
+      <Logo />
+      <p className="f4 link dim black underline pointer">Sign In </p>
     </nav>
   );
 }
