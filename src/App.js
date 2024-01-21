@@ -1,11 +1,12 @@
 import "./App.css";
-
+import ParticlesBg from "particles-bg";
+import Naviagtion from "./components/Navigation/Naviagtion";
+import Logo from "./components/Logo/Logo";
+import FacialRecognition from "./components/FacialRecognition/FacialRecognition";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Smart Brain app</h1>
-      </header>
+      <Naviagtion />
     </div>
   );
 }
