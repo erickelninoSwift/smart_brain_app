@@ -4,7 +4,10 @@ import myLogo from "./logoimage/jackpotlogo.png";
 function Logo() {
   return (
     <div style={{ margin: "10px" }}>
-      <Tilt className="Tilt br2 shadow-2">
+      <Tilt
+        className="Tilt br2 shadow-1"
+        style={{ backgroundColor: "transparent" }}
+      >
         <img
           src={myLogo}
           alt="Jackpotlog"
