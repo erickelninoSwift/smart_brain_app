@@ -5,37 +5,60 @@ import FacialRecognition from "./components/FacialRecognition/FacialRecognition"
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank.components";
 
-function App() {
-  let config = {
-    num: [4, 7],
-    rps: 0.1,
-    radius: [5, 40],
-    life: [1.5, 3],
-    v: [2, 3],
-    tha: [-40, 40],
-    // body: "./img/icon.png", // Whether to render pictures
-    // rotate: [0, 20],
-    alpha: [0.6, 0],
-    scale: [1, 0.1],
-    position: "center", // all or center or {x:1,y:1,width:100,height:100}
-    color: ["random", "#ff0000"],
-    cross: "dead", // cross or bround
-    random: 15, // or null,
-    g: 5, // gravity
-    // f: [2, -1], // force
-    onParticleUpdate: (ctx, particle) => {
-      ctx.beginPath();
-      ctx.rect(
-        particle.p.x,
-        particle.p.y,
-        particle.radius * 2,
-        particle.radius * 2
-      );
-      ctx.fillStyle = particle.color;
-      ctx.fill();
-      ctx.closePath();
+///////////////////////////////////////////////////////////////////////////////////
+// YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
+///////////////////////////////////////////////////////////////////////////////////
+
+const requestOptions = {
+  method: "POST",
+  headers: {
+    Accept: "application/json",
+    Authorization: "Key " + PAT,
+  },
+  body: raw,
+};
+
+// NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
+// https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
+// this will default to the latest version_id
+
+fetch(
+  "https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + "/outputs",
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
+
+const setupClariai = (ImageUrl) => {
+  const PAT = "377622cd3cee43f6bdc136374714bd30";
+  // Specify the correct user_id/app_id pairings
+  // Since you're making inferences outside your app's scope
+  const USER_ID = "jackpot11";
+  const APP_ID = "smartBrainApplication";
+  // Change these to whatever model and image URL you want to use
+  const MODEL_ID = "face-detection";
+
+  const IMAGE_URL = `${ImageUrl}`;
+
+  const raw = JSON.stringify({
+    user_app_id: {
+      user_id: USER_ID,
+      app_id: APP_ID,
     },
-  };
+    inputs: [
+      {
+        data: {
+          image: {
+            url: IMAGE_URL,
+          },
+        },
+      },
+    ],
+  });
+};
+
+function App() {
   return (
     <>
       <ParticlesBg
