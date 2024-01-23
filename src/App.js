@@ -8,36 +8,17 @@ import Rank from "./components/Rank/Rank.components";
 ///////////////////////////////////////////////////////////////////////////////////
 // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
 ///////////////////////////////////////////////////////////////////////////////////
-
-const requestOptions = {
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    Authorization: "Key " + PAT,
-  },
-  body: raw,
-};
-
 // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
 // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
 // this will default to the latest version_id
-
-fetch(
-  "https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + "/outputs",
-  requestOptions
-)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
-
-const setupClariai = (ImageUrl) => {
-  const PAT = "377622cd3cee43f6bdc136374714bd30";
+const MODEL_ID = "face-detection";
+const returnClariaiRequestOptions = (ImageUrl) => {
   // Specify the correct user_id/app_id pairings
   // Since you're making inferences outside your app's scope
+  const PAT = "377622cd3cee43f6bdc136374714bd30";
   const USER_ID = "jackpot11";
   const APP_ID = "smartBrainApplication";
   // Change these to whatever model and image URL you want to use
-  const MODEL_ID = "face-detection";
 
   const IMAGE_URL = `${ImageUrl}`;
 
@@ -56,7 +37,24 @@ const setupClariai = (ImageUrl) => {
       },
     ],
   });
+
+  return {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: "Key " + PAT,
+    },
+    body: raw,
+  };
 };
+
+fetch(
+  "https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs",
+  returnClariaiRequestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
 
 function App() {
   return (
