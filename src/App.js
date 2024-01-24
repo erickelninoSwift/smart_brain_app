@@ -4,6 +4,7 @@ import Logo from "./components/Logo/Logo";
 import FacialRecognition from "./components/FacialRecognition/FacialRecognition";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank.components";
+import { Component } from "react";
 
 ///////////////////////////////////////////////////////////////////////////////////
 // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
@@ -56,39 +57,56 @@ fetch(
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
 
-function App() {
-  return (
-    <>
-      <ParticlesBg
-        color="#ff1111"
-        num={200}
-        type="lines"
-        bg={true}
-        style={{
-          position: "fixed",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
-        }}
-      />
-      <div>
-        <Naviagtion />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Rank />
+class App extends Component {
+  constructor() {
+    super();
 
-          <ImageLinkForm />
+    this.state = {
+      imageUrl: "",
+    };
+  }
+  onChangeInput = (DataProvided) => {
+    console.log(DataProvided);
+    this.setState({
+      imageUrl: DataProvided,
+    });
+  };
+  render() {
+    const { onChangeInput } = this;
+
+    return (
+      <>
+        <ParticlesBg
+          color="#ff1111"
+          num={200}
+          type="lines"
+          bg={true}
+          style={{
+            position: "fixed",
+            top: "0",
+            right: "0",
+            bottom: "0",
+            left: "0",
+          }}
+        />
+        <div>
+          <Naviagtion />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Rank />
+
+            <ImageLinkForm onChangeDataField={onChangeInput} />
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default App;

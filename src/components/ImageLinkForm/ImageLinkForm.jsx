@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageLinkForm.css";
 
-function ImageLinkForm() {
+function ImageLinkForm({ onChangeDataField }) {
   return (
     <div
       style={{
@@ -16,7 +16,10 @@ function ImageLinkForm() {
       <p className="f3" style={{ color: "white" }}>
         {"This Magic Brain Will Detect Faces In Your Pictures give it a try"}
       </p>
-      <div className="center" style={{ display: "flex", width: "760px" }}>
+      <div
+        className="center"
+        style={{ display: "flex", width: "760px", border: "2px solid black" }}
+      >
         <div
           className="pa4 shadow-3 br3"
           style={{
@@ -36,7 +39,9 @@ function ImageLinkForm() {
               borderRadius: "10px",
               fontSize: "16px",
               padding: "10px",
+              border: "3px solid black",
             }}
+            onChange={(event) => onChangeDataField(event.target.value)}
           />
 
           <button
@@ -46,6 +51,7 @@ function ImageLinkForm() {
               border: "none",
               borderRadius: "10px",
               fontSize: "16px",
+              border: "3px solid black",
             }}
           >
             Detect
