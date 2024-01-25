@@ -1,7 +1,11 @@
 import React from "react";
 
-function FacialRecognition() {
-  return <div>FacialRecognition</div>;
+function FacialRecognition({ imageFace }) {
+  return (
+    <div className="center" style={{ margin: "20px" }}>
+      <img src={imageFace} alt="image" />
+    </div>
+  );
 }
 
 export default FacialRecognition;

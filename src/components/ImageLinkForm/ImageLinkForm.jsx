@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageLinkForm.css";
 
-function ImageLinkForm({ onChangeDataField }) {
+function ImageLinkForm({ onChangeDataField, onSubmit }) {
   return (
     <div
       style={{
@@ -53,6 +53,7 @@ function ImageLinkForm({ onChangeDataField }) {
               fontSize: "16px",
               border: "3px solid black",
             }}
+            onClick={onSubmit}
           >
             Detect
           </button>
