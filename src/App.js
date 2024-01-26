@@ -13,80 +13,174 @@ import { Component } from "react";
 // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
 // this will default to the latest version_id
 
-const clarifAi = () => {
-  const PAT = "YOUR_PAT_HERE";
-  // Specify the correct user_id/app_id pairings
-  // Since you're making inferences outside your app's scope
-  const USER_ID = "clarifai";
-  const APP_ID = "main";
-  // Change these to whatever model and image URL you want to use
-  const MODEL_ID = "general-image-recognition";
-  const MODEL_VERSION_ID = "aa7f35c01e0642fda5cf400f543e7c40";
-  const IMAGE_URL = "https://samples.clarifai.com/metro-north.jpg";
-
-  ///////////////////////////////////////////////////////////////////////////////////
-  // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
-  ///////////////////////////////////////////////////////////////////////////////////
-
-  const raw = JSON.stringify({
-    user_app_id: {
-      user_id: USER_ID,
-      app_id: APP_ID,
-    },
-    inputs: [
-      {
-        data: {
-          image: {
-            url: IMAGE_URL,
-          },
-        },
-      },
-    ],
-  });
-
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      Authorization: "Key " + PAT,
-    },
-    body: raw,
-  };
-
-  // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
-  // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
-  // this will default to the latest version_id
-
-  return fetch(
-    "https://api.clarifai.com/v2/models/" +
-      MODEL_ID +
-      "/versions/" +
-      MODEL_VERSION_ID +
-      "/outputs",
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+const faceSquarebracket = (faceObject) => {
+  return faceObject;
 };
+
+const handleFacelocation = (response) => {
+  console.log("===============");
+  console.log(response);
+
+  console.log("====================");
+
+  const image = document.getElementById("imageInput");
+  const width = Number(image.height);
+  const height = Number(image.width);
+
+  const { bottom_row, left_col, right_col, top_row } = response;
+
+  return {
+    bottom: height - bottom_row * height,
+    left: left_col * width,
+    right: width - right_col * width,
+    top: top_row * height,
+  };
+};
+
+// const clarifAi = (ImageURL) => {
+//   const PAT = "6611bac68a7242638d73075acff0f5a7";
+//   // Specify the correct user_id/app_id pairings
+//   // Since you're making inferences outside your app's scope
+//   const USER_ID = "jackpot11";
+//   const APP_ID = "smartBrainApplication";
+//   // Change these to whatever model and image URL you want to use
+//   const MODEL_ID = "face-detection";
+//   const MODEL_VERSION_ID = "6dc7e46bc9124c5c8824be4822abe105";
+//   const IMAGE_URL = ImageURL;
+
+//   ///////////////////////////////////////////////////////////////////////////////////
+//   // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
+//   ///////////////////////////////////////////////////////////////////////////////////
+
+//   const raw = JSON.stringify({
+//     user_app_id: {
+//       user_id: USER_ID,
+//       app_id: APP_ID,
+//     },
+//     inputs: [
+//       {
+//         data: {
+//           image: {
+//             url: IMAGE_URL,
+//           },
+//         },
+//       },
+//     ],
+//   });
+
+//   const requestOptions = {
+//     method: "POST",
+//     headers: {
+//       Accept: "application/json",
+//       Authorization: "Key " + PAT,
+//     },
+//     body: raw,
+//   };
+
+//   // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
+//   // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
+//   // this will default to the latest version_id
+//   fetch(
+//     "https://api.clarifai.com/v2/models/" +
+//       MODEL_ID +
+//       "/versions/" +
+//       MODEL_VERSION_ID +
+//       "/outputs",
+//     requestOptions
+//   )
+//     .then((response) => response.json())
+//     .then((result) => {
+//       return faceSquarebracket(
+//         handleFacelocation(
+//           result.outputs[0].data.regions[0].region_info.bounding_box
+//         )
+//       );
+//     })
+//     .catch((error) => console.log("error", error));
+// };
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      input: "",
       imageUrl: "",
+      box: {},
     };
   }
+
   onChangeInput = (DataProvided) => {
     this.setState({
       imageUrl: DataProvided,
     });
   };
 
-  buttonOnSubmit = () => {};
+  buttonOnSubmit = () => {
+    const PAT = "6611bac68a7242638d73075acff0f5a7";
+    // Specify the correct user_id/app_id pairings
+    // Since you're making inferences outside your app's scope
+    const USER_ID = "jackpot11";
+    const APP_ID = "smartBrainApplication";
+    // Change these to whatever model and image URL you want to use
+    const MODEL_ID = "face-detection";
+    const MODEL_VERSION_ID = "6dc7e46bc9124c5c8824be4822abe105";
+    const IMAGE_URL = this.state.imageUrl;
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    const raw = JSON.stringify({
+      user_app_id: {
+        user_id: USER_ID,
+        app_id: APP_ID,
+      },
+      inputs: [
+        {
+          data: {
+            image: {
+              url: IMAGE_URL,
+            },
+          },
+        },
+      ],
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: "Key " + PAT,
+      },
+      body: raw,
+    };
+
+    // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
+    // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
+    // this will default to the latest version_id
+    fetch(
+      "https://api.clarifai.com/v2/models/" +
+        MODEL_ID +
+        "/versions/" +
+        MODEL_VERSION_ID +
+        "/outputs",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        return faceSquarebracket(
+          handleFacelocation(
+            result.outputs[0].data.regions[0].region_info.bounding_box
+          )
+        );
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   render() {
     const { onChangeInput } = this;
+    // console.log(faceSquarebracket());
 
     return (
       <div style={{ height: "100%" }}>
@@ -101,6 +195,7 @@ class App extends Component {
             right: "0",
             bottom: "0",
             left: "0",
+            height: "100vh",
           }}
         />
         <div>

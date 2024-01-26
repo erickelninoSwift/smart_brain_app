@@ -18,7 +18,12 @@ function ImageLinkForm({ onChangeDataField, onSubmit }) {
       </p>
       <div
         className="center"
-        style={{ display: "flex", width: "760px", border: "2px solid black" }}
+        style={{
+          display: "flex",
+          width: "760px",
+          border: "2px solid black",
+          borderRadius: "15px",
+        }}
       >
         <div
           className="pa4 shadow-3 br3"
