@@ -13,10 +13,6 @@ import { Component } from "react";
 // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
 // this will default to the latest version_id
 
-const faceSquarebracket = (faceObject) => {
-  return faceObject;
-};
-
 const handleFacelocation = (response) => {
   console.log("===============");
   console.log(response);
@@ -116,6 +112,16 @@ class App extends Component {
     });
   };
 
+  displayBox = (box) => {
+    console.log("***************");
+    console.log(box);
+
+    console.log("**************");
+    this.setState({
+      box: box,
+    });
+  };
+
   buttonOnSubmit = () => {
     const PAT = "6611bac68a7242638d73075acff0f5a7";
     // Specify the correct user_id/app_id pairings
@@ -168,13 +174,13 @@ class App extends Component {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => {
-        return faceSquarebracket(
+      .then((result) =>
+        this.displayBox(
           handleFacelocation(
             result.outputs[0].data.regions[0].region_info.bounding_box
           )
-        );
-      })
+        )
+      )
       .catch((error) => console.log("error", error));
   };
 
