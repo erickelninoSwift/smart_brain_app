@@ -37,6 +37,7 @@ class App extends Component {
       input: "",
       imageUrl: "",
       box: {},
+      route: "SignIn",
     };
   }
 
@@ -148,18 +149,23 @@ class App extends Component {
               justifyContent: "center",
             }}
           >
-            <Login />
-            <Rank />
+            {this.state.route === "SignIn" ? (
+              <Login />
+            ) : (
+              <>
+                <Rank />
 
-            <ImageLinkForm
-              onChangeDataField={onChangeInput}
-              onSubmit={this.buttonOnSubmit}
-            />
-            <br />
-            <FacialRecognition
-              jukebox={this.state.box}
-              imageFace={this.state.imageUrl}
-            />
+                <ImageLinkForm
+                  onChangeDataField={onChangeInput}
+                  onSubmit={this.buttonOnSubmit}
+                />
+                <br />
+                <FacialRecognition
+                  jukebox={this.state.box}
+                  imageFace={this.state.imageUrl}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>

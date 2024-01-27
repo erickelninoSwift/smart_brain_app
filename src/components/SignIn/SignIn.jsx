@@ -26,7 +26,7 @@ const Login = () => {
       <main className="pa4 black-80">
         <form className="measure">
           <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-            <legend className="f4 fw6 ph0 mh0">Sign In</legend>
+            <legend className="f2 fw6 ph0 mh0">Sign In</legend>
             <div className="mt3">
               <label className="db fw6 lh-copy f6" for="email-address">
                 Email
@@ -58,8 +58,8 @@ const Login = () => {
             />
           </div>
           <div className="lh-copy mt3">
-            <a href="#0" className="f6 link dim black db">
-              Sign up
+            <a href="#0" className="f5 link dim black db">
+              Register
             </a>
           </div>
         </form>
