@@ -1,10 +1,11 @@
 import ParticlesBg from "particles-bg";
 import Naviagtion from "./components/Navigation/Naviagtion";
-import Logo from "./components/Logo/Logo";
+
 import FacialRecognition from "./components/FacialRecognition/FacialRecognition";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank.components";
 import { Component } from "react";
+import Login from "./components/SignIn/SignIn";
 
 const handleFacelocation = (result) => {
   const image = document.getElementById("inputimage");
@@ -147,6 +148,7 @@ class App extends Component {
               justifyContent: "center",
             }}
           >
+            <Login />
             <Rank />
 
             <ImageLinkForm

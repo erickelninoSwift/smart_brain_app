@@ -21,7 +21,7 @@ function ImageLinkForm({ onChangeDataField, onSubmit }) {
         style={{
           display: "flex",
           width: "760px",
-          border: "2px solid black",
+
           borderRadius: "15px",
         }}
       >
@@ -44,7 +44,7 @@ function ImageLinkForm({ onChangeDataField, onSubmit }) {
               borderRadius: "10px",
               fontSize: "16px",
               padding: "10px",
-              border: "3px solid black",
+              border: "1px solid black",
             }}
             onChange={(event) => onChangeDataField(event.target.value)}
           />
@@ -56,7 +56,7 @@ function ImageLinkForm({ onChangeDataField, onSubmit }) {
               border: "none",
               borderRadius: "10px",
               fontSize: "16px",
-              border: "3px solid black",
+              border: "1px solid black",
             }}
             onClick={onSubmit}
           >
