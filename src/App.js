@@ -108,7 +108,13 @@ class App extends Component {
     )
       .then((response) => response.json())
       .then((result) => this.displayBox(handleFacelocation(result)))
-      .catch((error) => console.log("error", error));
+      .catch((error) => console.log("error", error))
+      .finally(() => {
+        return this.setState({
+          imageUrl: "",
+          input: "",
+        });
+      });
   };
 
   render() {
