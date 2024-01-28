@@ -11,6 +11,18 @@ function Naviagtion() {
     >
       <Logo />
       <div style={{ display: "flex", gap: "14px" }}>
+        {/* <p
+          className="f4 link dim black underline pointer"
+          style={{
+            color: "white",
+            textDecoration: "none",
+            fontWeight: "500",
+            hover: { color: "black" },
+          }}
+          onClick={() => console.log("sign out")}
+        >
+          Sign Out
+        </p> */}
         <p
           className="f4 link dim black underline pointer"
           style={{
@@ -22,18 +34,6 @@ function Naviagtion() {
           onClick={() => console.log("sign out")}
         >
           Sign Out
-        </p>
-        <p
-          className="f4 link dim black underline pointer"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontWeight: "500",
-            hover: { color: "black" },
-          }}
-          onClick={() => console.log("sign out")}
-        >
-          Sign In
         </p>
       </div>
     </nav>

@@ -1,7 +1,7 @@
 import React from "react";
-import "./SignIn.styles.css"; // Import the CSS file
+import "./Register.css"; // Import the CSS file
 
-const Login = ({ ElninonChangeRoute }) => {
+const Register = ({ ElninonChangeRoute }) => {
   return (
     <article className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-3 center">
       <div className="pa4 black-80">
@@ -53,4 +53,4 @@ const Login = ({ ElninonChangeRoute }) => {
   );
 };
 
-export default Login;
+export default Register;

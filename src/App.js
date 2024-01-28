@@ -48,10 +48,6 @@ class App extends Component {
   };
 
   displayBox = (box) => {
-    console.log("***************");
-    console.log(box);
-
-    console.log("**************");
     this.setState({
       box: box,
     });
@@ -62,7 +58,7 @@ class App extends Component {
     // Specify the correct user_id/app_id pairings
     // Since you're making inferences outside your app's scope
     const USER_ID = "jackpot11";
-    const APP_ID = "smartBrainApplication";
+    const APP_ID = "jackpotSmartBrain";
     // Change these to whatever model and image URL you want to use
     const MODEL_ID = "face-detection";
     const MODEL_VERSION_ID = "6dc7e46bc9124c5c8824be4822abe105";
@@ -110,17 +106,17 @@ class App extends Component {
     )
       .then((response) => response.json())
       .then((result) => this.displayBox(handleFacelocation(result)))
-      .catch((error) => console.log("error", error))
-      .finally(() => {
-        return this.setState({
-          imageUrl: "",
-          input: "",
-        });
-      });
+      .catch((error) => console.log("error", error));
+  };
+
+  onChangeRoute = () => {
+    this.setState({
+      route: "home",
+    });
   };
 
   render() {
-    const { onChangeInput } = this;
+    const { onChangeInput, onChangeRoute } = this;
     // console.log(faceSquarebracket());
 
     return (
@@ -150,7 +146,7 @@ class App extends Component {
             }}
           >
             {this.state.route === "SignIn" ? (
-              <Login />
+              <Login ElninonChangeRoute={onChangeRoute} />
             ) : (
               <>
                 <Rank />

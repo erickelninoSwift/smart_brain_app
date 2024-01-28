@@ -46,6 +46,7 @@ function ImageLinkForm({ onChangeDataField, onSubmit }) {
               padding: "10px",
               border: "1px solid black",
             }}
+            autoComplete="false"
             onChange={(event) => onChangeDataField(event.target.value)}
           />
 
