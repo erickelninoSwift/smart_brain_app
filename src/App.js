@@ -6,6 +6,7 @@ import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank.components";
 import { Component } from "react";
 import Login from "./components/SignIn/SignIn";
+import Register from "./components/Register/Register";
 
 const handleFacelocation = (result) => {
   const image = document.getElementById("inputimage");
@@ -109,9 +110,9 @@ class App extends Component {
       .catch((error) => console.log("error", error));
   };
 
-  onChangeRoute = () => {
+  onChangeRoute = (defineroute) => {
     this.setState({
-      route: "home",
+      route: `${defineroute}`,
     });
   };
 
@@ -147,6 +148,8 @@ class App extends Component {
           >
             {this.state.route === "SignIn" ? (
               <Login ElninonChangeRoute={onChangeRoute} />
+            ) : this.state.route === "register" ? (
+              <Register ElninonChangeRoute={onChangeRoute} />
             ) : (
               <>
                 <Rank />

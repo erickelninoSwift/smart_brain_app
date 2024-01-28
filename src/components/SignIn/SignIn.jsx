@@ -39,11 +39,15 @@ const Login = ({ ElninonChangeRoute }) => {
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
               type="submit"
               value="Sign in"
-              onClick={ElninonChangeRoute}
+              onClick={() => ElninonChangeRoute("home")}
             />
           </div>
           <div className="lh-copy mt3">
-            <a href="#0" className="f5 link dim black db">
+            <a
+              href="#0"
+              className="f5 link dim black db"
+              onClick={() => ElninonChangeRoute("register")}
+            >
               Register
             </a>
           </div>
