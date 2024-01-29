@@ -39,6 +39,7 @@ class App extends Component {
       imageUrl: "",
       box: {},
       route: "SignIn",
+      isSigned: false,
     };
   }
 
@@ -111,6 +112,15 @@ class App extends Component {
   };
 
   onChangeRoute = (defineroute) => {
+    if (defineroute === "home") {
+      this.setState({
+        isSigned: true,
+      });
+    } else if (defineroute === "signout") {
+      this.setState({
+        isSigned: false,
+      });
+    }
     this.setState({
       route: `${defineroute}`,
     });
@@ -137,7 +147,10 @@ class App extends Component {
           }}
         />
         <div>
-          <Naviagtion />
+          <Naviagtion
+            ElninonChangeRoute={onChangeRoute}
+            currentUserIsSignedIn={this.state.isSigned}
+          />
           <div
             style={{
               display: "flex",
