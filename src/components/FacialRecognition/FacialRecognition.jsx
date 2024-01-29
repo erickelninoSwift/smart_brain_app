@@ -2,8 +2,7 @@ import React from "react";
 import "./FacialRecognition.style.css";
 function FacialRecognition({ jukebox, imageFace }) {
   const { bottom, left, right, top } = jukebox;
-  console.log(jukebox);
-  console.log(imageFace);
+
   return (
     <div className="center ma">
       {imageFace && (

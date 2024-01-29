@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../Logo/Logo";
 function Naviagtion({ ElninonChangeRoute, currentUserIsSignedIn }) {
-  console.log(currentUserIsSignedIn);
   return (
     <>
       <nav

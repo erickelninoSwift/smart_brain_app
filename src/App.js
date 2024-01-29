@@ -116,9 +116,10 @@ class App extends Component {
       this.setState({
         isSigned: true,
       });
-    } else if (defineroute === "signout") {
+    } else if (defineroute === "SignIn") {
       this.setState({
         isSigned: false,
+        route: "SignIn",
       });
     }
     this.setState({

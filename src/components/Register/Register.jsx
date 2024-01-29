@@ -5,12 +5,7 @@ const Register = ({ ElninonChangeRoute }) => {
   return (
     <article className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-3 center">
       <div className="pa4 black-80">
-        <form
-          className="measure"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
+        <form className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f2 fw6 ph0 mh0">Register</legend>
             <div className="mt3">
