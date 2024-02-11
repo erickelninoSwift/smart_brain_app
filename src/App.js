@@ -134,7 +134,7 @@ class App extends Component {
     return (
       <div style={{ height: "100%" }}>
         <ParticlesBg
-          color="#ff1111"
+          color=""
           num={200}
           type="lines"
           bg={true}

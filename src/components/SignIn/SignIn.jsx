@@ -3,8 +3,11 @@ import "./SignIn.styles.css"; // Import the CSS file
 
 const Login = ({ ElninonChangeRoute }) => {
   return (
-    <article className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-3 center">
-      <div className="pa4 black-80">
+    <article
+      className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-3 center"
+      style={{ color: "white" }}
+    >
+      <div className="pa4 black-80" style={{ color: "white" }}>
         <form className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f2 fw6 ph0 mh0">Sign In</legend>
@@ -29,19 +32,21 @@ const Login = ({ ElninonChangeRoute }) => {
               />
             </div>
           </fieldset>
-          <div className="">
+          <div className="" style={{ color: "white" }}>
             <input
-              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+              style={{ color: "white" }}
+              className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib"
               type="submit"
               value="Sign in"
               onClick={() => ElninonChangeRoute("home")}
             />
           </div>
-          <div className="lh-copy mt3">
+          <div className="lh-copy mt3" style={{ color: "white" }}>
             <a
               href="#0"
               className="f5 link dim black db"
               onClick={() => ElninonChangeRoute("register")}
+              style={{ color: "white" }}
             >
               Register
             </a>

@@ -3,8 +3,11 @@ import "./Register.css"; // Import the CSS file
 
 const Register = ({ ElninonChangeRoute }) => {
   return (
-    <article className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-3 center">
-      <div className="pa4 black-80">
+    <article
+      className="br3 ba mv4 w-100 w-50-m w-25-l mw6 shadow-3 center"
+      style={{ color: "white" }}
+    >
+      <div className="pa4 black-80" style={{ color: "white" }}>
         <form className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f2 fw6 ph0 mh0">Register</legend>
@@ -28,7 +31,7 @@ const Register = ({ ElninonChangeRoute }) => {
                 id="surname"
               />
             </div>
-            <div className="mt3">
+            <div className="mt3" style={{ color: "white" }}>
               <label className="db fw6 lh-copy f6">Email</label>
               <input
                 autoComplete="false"
@@ -38,7 +41,7 @@ const Register = ({ ElninonChangeRoute }) => {
                 id="email-address"
               />
             </div>
-            <div className="mv3">
+            <div className="mv3" style={{ color: "white" }}>
               <label className="db fw6 lh-copy f6">Password</label>
               <input
                 autoComplete="false"
@@ -51,7 +54,8 @@ const Register = ({ ElninonChangeRoute }) => {
           </fieldset>
           <div className="">
             <input
-              className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+              style={{ color: "white" }}
+              className="b ph3 pv2 input-reset ba b--white bg-transparent grow pointer f6 dib"
               type="submit"
               value="Register"
               onClick={() => ElninonChangeRoute("home")}
@@ -62,6 +66,7 @@ const Register = ({ ElninonChangeRoute }) => {
               href="#0"
               className="f5 link dim black db pointer"
               onClick={() => ElninonChangeRoute("SignIn")}
+              style={{ color: "white" }}
             >
               Back to Login
             </a>
